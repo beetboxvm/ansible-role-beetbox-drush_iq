@@ -1,0 +1,13 @@
+---
+- name: Install grn and drush_iq.
+  command: >
+    {{ drush_path }} dl grn drush_iq-7.x-2.0-alpha4 --destination="{{ drush_home }}"
+  args:
+    creates: "{{ drush_home }}/drush_iq"
+  become: no
+
+- name: Install Drupal dependencies with composer.
+  composer:
+    command: install
+    working_dir: "{{ drush_home }}/drush_iq"
+  become: no

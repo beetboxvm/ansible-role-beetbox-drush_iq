@@ -1,0 +1,3 @@
+---
+# defaults file for beetboxvm.drush_iq
+drush_home: "{{ lookup('pipe', 'drush ev \"print drush_server_home();\"') }}/.drush"
